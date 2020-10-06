@@ -1,9 +1,11 @@
 from bin.bot.ruler_builder import RulerBuilder
 
 def main():
+    print("\n")
     builder = RulerBuilder()
-    ruler = builder.generateOne()
+    rulers = builder.generateN(3)
     
-    print(ruler)
+    for ruler in rulers:
+        print(str(ruler)+"\n")
 
 main()
