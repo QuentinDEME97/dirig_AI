@@ -3,11 +3,17 @@ from bin.game_factory import GameFactory
 def main():
     print("\n")
     builder = GameFactory()
-    rulers = builder.generateNRuler(3)
+    ruler = builder.generateOneRuler()
     world = builder.generateWorld(5,5)
     print(world.grid)
     
-    for ruler in rulers:
-        print(str(ruler)+"\n")
+    print(ruler.personality)
 
+    print(ruler)
+    print("Stock low" if ruler.city.isStockLow() else "Tout va bien " + str(ruler.city.stocks["wheat"]) + " blé")
+    print("Should buy ? " + str(ruler.shouldBuyWheat()))
+    ruler.pay()
+    print("Stock low " + str(ruler.city.stocks["wheat"]) + " blé" if ruler.city.isStockLow() else "Tout va bien " + str(ruler.city.stocks["wheat"]) + "blé")
+    print("Should buy ? " + str(ruler.shouldBuyWheat()))
+    
 main()

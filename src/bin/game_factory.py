@@ -1,5 +1,5 @@
 from .bot.ruler import Ruler
-from .world.world import World
+from .world import World, City
 import random
 import codecs
 
@@ -15,14 +15,17 @@ class GameFactory:
 
     def generateOneRuler(self):
         ruler_personality = {}
-        ruler_personality['warrior'] = int(round(random.random(), 2) * 100)
-        ruler_personality['trust'] = int(round(random.random(), 2) * 100)
-        ruler_personality['kindness'] = int(round(random.random(), 2) * 100)
-        ruler_personality['greed'] = int(round(random.random(), 2) * 100)
+        ruler_personality['warrior'] = round(random.random(), 2)
+        ruler_personality['trust'] = round(random.random(), 2)
+        ruler_personality['kindness'] = round(random.random(), 2)
+        ruler_personality['greed'] = round(random.random(), 2)
         
         name = self.generateName()
 
-        return Ruler(name, ruler_personality)
+        ruler = Ruler(name, ruler_personality)
+        ruler.addCity(City((5,5)))
+
+        return ruler
     
     def generateNRuler(self, n):
         rulers = []
