@@ -50,6 +50,10 @@ func (c City) GetNode() node {
 	return c.node
 }
 
+func (c City) String() string {
+	return fmt.Sprintf("%v (%v, %v)", c.Name, c.node.X, c.node.Y)
+}
+
 func NewRessource(x float32, y float32, name string) *Ressource {
     RessourcesCreated += 1
 	r := Ressource{
