@@ -7,9 +7,6 @@ import (
 	"strconv"
 )
 
-var RessourcesCreated = 0
-var AllRessources []Ressource
-
 var CityCreated = 0
 var AllCities []City
 
@@ -24,13 +21,6 @@ type Entity interface {
 type node struct{
 	X		float32
 	Y		float32
-}
-
-
-type Ressource struct {
-	node
-	Name	string
-	Id		int
 }
 
 type City struct {
